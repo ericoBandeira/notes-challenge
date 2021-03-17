@@ -24,13 +24,15 @@ export function TaskList() {
   }
 
   function handleToggleTaskCompletion(id: number) {
-    // setTasks([{id: id,title: newTaskTitle , isComplete:}]);
-    const [idTask, setIdTask] = useState<Task[]>([]);
-    console.log(tasks)
+    // for(let i=0; i<tasks.length; i++){
+    //   if(id === tasks[i].id){
+    //     setTasks([{id: tasks[i].id,title: tasks[i].title , isComplete:!(tasks[i].isComplete)}]);
+    //   }
+    // }
   }
 
   function handleRemoveTask(id: number) {
-    // Remova uma task da listagem pelo ID
+    setTasks(tasks.filter(task=>task.id !==id))
   }
 
   return (
