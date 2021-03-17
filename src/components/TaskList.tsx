@@ -18,21 +18,22 @@ export function TaskList() {
     if(newTaskTitle==""){
       window.alert("Por favor, escreva algo no campo abaixo");
     }else{
-      setTasks([...tasks,{id: Math.random(),title: newTaskTitle , isComplete:!true}]);
+      setTasks([...tasks,{id: Math.random(),title: newTaskTitle , isComplete:false}]);
       setNewTaskTitle('')
     };
   }
 
   function handleToggleTaskCompletion(id: number) {
-    // for(let i=0; i<tasks.length; i++){
-    //   if(id === tasks[i].id){
-    //     setTasks([{id: tasks[i].id,title: tasks[i].title , isComplete:!(tasks[i].isComplete)}]);
-    //   }
-    // }
+    const newTasks = tasks.map(task=> task.id === id ?{
+      ...task, 
+      isComplete: !task.isComplete
+    }:task);
+
+    setTasks(newTasks);
   }
 
   function handleRemoveTask(id: number) {
-    setTasks(tasks.filter(task=>task.id !==id))
+    setTasks(tasks.filter(task=>task.id !==id)) // irá setar o novo "tasks" com todos que não tem o id igual ao que estou filtrando
   }
 
   return (
